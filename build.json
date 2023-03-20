@@ -1,0 +1,11 @@
+{
+  "library": "ZerocmfLayout",
+  "libraryTarget": "umd",
+  "sourceMap": true,
+  "alias": {
+    "@": "./src"
+  },
+  "plugins": [
+    ["build-plugin-component"]
+  ]
+}
