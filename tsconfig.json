@@ -18,8 +18,11 @@
     "baseUrl": "./",
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["src/*.ts", "src/*.tsx", "global.d.ts", "lowcode/**/*.ts", "lowcode/**/*.tsx", "src/components/container/index.tsx", "src/components/navbar/index.tsx", "src/components/RGLContainer/index.tsx", "src/components/swiper/index.tsx"],
   "exclude": ["node_modules", "lib"]
 }

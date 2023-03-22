@@ -1,3 +1,3 @@
-const bizCssPrefix = 'bizpack';
+const bizCssPrefix = 'zero-ui';
 
 export { bizCssPrefix };

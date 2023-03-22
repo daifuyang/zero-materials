@@ -1,11 +1,25 @@
 {
-  "library": "ZerocmfLayout",
+  "library": "ZeroUi",
   "libraryTarget": "umd",
   "sourceMap": true,
   "alias": {
-    "@": "./src"
+    "@": "./src",
+    "@components": "./src/components"
   },
   "plugins": [
-    ["build-plugin-component"]
+    [
+      "build-plugin-component",
+      {
+        "themePackage": "@alifd/theme-2"
+      }
+    ],
+    [
+      "@alilc/build-plugin-alt",
+      {
+        "type": "plugin",
+        "inject": true,
+        "openUrl": "http://localhost:5556?debug"
+      }
+    ]
   ]
 }

@@ -1,41 +1,45 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
-const ColorfulButtonMeta: ComponentMetadata = {
-  componentName: 'ColorfulButton',
-  title: 'ColorfulButton',
+const NavbarMeta: ComponentMetadata = {
+  componentName: "Navbar",
+  title: '导航栏',
   docUrl: '',
   screenshot: '',
   devMode: 'proCode',
   npm: {
     package: 'ssr-materials',
     version: '0.1.0',
-    exportName: 'ColorfulButton',
+    exportName: "Navbar",
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
   },
   configure: {
-    props: [
-
-    ],
+    props: [],
     supports: {
       style: true,
+      loop: false,
     },
     component: {},
+    advanced: {},
+  },
+  experimental: {
+    callbacks: {},
   },
 };
 const snippets: Snippet[] = [
   {
-    title: 'ColorfulButton',
+    title: '导航栏',
     screenshot: '',
     schema: {
-      componentName: 'ColorfulButton',
+      componentName: "Navbar",
       props: {},
+      children: [],
     },
   },
 ];
 
 export default {
-  ...ColorfulButtonMeta,
+  ...NavbarMeta,
   snippets,
 };

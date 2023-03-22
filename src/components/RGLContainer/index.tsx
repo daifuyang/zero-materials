@@ -36,7 +36,7 @@ const RGLContainer = forwardRef<HTMLDivElement, any>((props: any, ref) => {
   });
 
   return (
-    <div ref={ref} style={{ ...style, position: 'relative' }} className={className}>
+    <div id='rgl' ref={ref} style={{ ...style, position: 'relative' }} className={className}>
       <ReactGridLayout
         {...props}
         className="layout"
