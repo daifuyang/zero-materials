@@ -1,7 +1,7 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
-const SwiperMeta: ComponentMetadata = {
-  componentName: "Button",
+const Meta: ComponentMetadata = {
+  componentName: "Template",
   title: '按钮',
   docUrl: '',
   screenshot:
@@ -10,7 +10,7 @@ const SwiperMeta: ComponentMetadata = {
   npm: {
     package: 'ssr-materials',
     version: '0.1.0',
-    exportName: "Button",
+    exportName: "Template",
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
@@ -86,16 +86,14 @@ const SwiperMeta: ComponentMetadata = {
   experimental: {
     callbacks: {},
   },
-  category: '基础',
-  group: '组件',
 };
 const snippets: Snippet[] = [
   {
     title: '按钮',
     screenshot:
-      'https://alifd.oss-cn-hangzhou.aliyuncs.com/fusion-cool/icons/icon-light/ic_light_button.png',
+      'https://alifd.oss-cn-hangzhou.aliyuncs.com/fusion-cool/icons/icon-light/ic_light_Template.png',
     schema: {
-      componentName: "Button",
+      componentName: "Template",
       props: {},
       children: [],
     },
@@ -103,6 +101,6 @@ const snippets: Snippet[] = [
 ];
 
 export default {
-  ...SwiperMeta,
+  ...Meta,
   snippets,
 };

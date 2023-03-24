@@ -3,7 +3,6 @@ import React, {
   CSSProperties,
   ForwardRefRenderFunction,
   ReactNode,
-  createElement,
 } from 'react';
 
 import cx from 'classnames';
@@ -24,7 +23,7 @@ interface ContainerProps {
 
 const Container: ForwardRefRenderFunction<HTMLDivElement, ContainerProps> = (props, ref) => {
   const { className, absolute, children, style = {}, isDraging } = props;
-  const _style = style || {};
+  const _style = {...style} || {};
   if (absolute) {
     _style.position = 'relative';
     if (!_style.height) {

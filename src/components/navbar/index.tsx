@@ -1,9 +1,5 @@
 import React, {
-  forwardRef,
   CSSProperties,
-  ForwardRefRenderFunction,
-  ReactNode,
-  createElement,
 } from 'react';
 
 interface NavbarProps {

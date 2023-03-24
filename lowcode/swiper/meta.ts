@@ -124,6 +124,8 @@ const SwiperMeta: ComponentMetadata = {
   experimental: {
     callbacks: {},
   },
+  category: '基础',
+  group: '组件',
 };
 const snippets: Snippet[] = [
   {

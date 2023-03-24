@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties, createElement } from 'react';
+import React, { FC, CSSProperties } from 'react';
 
 interface ButtonProps {
   title: string;

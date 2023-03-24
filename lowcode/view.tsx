@@ -20,10 +20,7 @@ function debounce(func, wait = 500) {
   };
 }
 
-const AbslouteContainerView = (props: {
-  _leaf?: IPublicModelNode;
-  [key: string]: any;
-}) => {
+const AbslouteContainerView = (props: { _leaf?: IPublicModelNode; [key: string]: any }) => {
   const ref = useRef<any>();
   const { _leaf, ...others } = props;
   let move = false;
@@ -54,7 +51,7 @@ const AbslouteContainerView = (props: {
       if (selectedNode && !selectedNode.isContainerNode) {
         oldStyle = selectedNode?.getPropValue('style') || {};
         move = true;
-        setDraging(true)
+        setDraging(true);
       }
     };
 
@@ -94,7 +91,7 @@ const AbslouteContainerView = (props: {
         // 新位置 = top + 移动趋势
         const newTop = Number(oldY) + distanceY;
 
-        const style: any = {};
+        const style: any = {...oldStyle};
         // 往右
         if (distanceX >= 0) {
           if (newLeft + eleWidth < parentWidth) {
@@ -141,14 +138,15 @@ const AbslouteContainerView = (props: {
       ref.current?.removeEventListener('pointermove', debounce(onMove, 10));
       selectedNode = null;
       move = false;
-      setDraging(false)
+      oldStyle = {};
+      setDraging(false);
     };
 
     ref.current?.addEventListener('pointerdown', debounce(onStart, 10));
     ref.current?.addEventListener('pointerup', debounce(onEnd, 10));
   }
 
-  return  <Container isDraging={isDraging} ref={ref} {...others} />;
+  return <Container isDraging={isDraging} ref={ref} {...others} />;
 };
 
 const RGLContainerView = (props: { _leaf?: IPublicModelNode; [key: string]: any }) => {

@@ -1,28 +1,27 @@
 {
+  "compileOnSave": false,
+  "buildOnSave": false,
   "compilerOptions": {
-    "module": "ESNext",
-    "target": "ESNext",
-    "jsx": "react",
-    "jsxFactory": "createElement",
-    "declaration": false,
-    "outDir": "./lib",
-    "removeComments": true,
-    "strict": false,
-    "noImplicitAny": false,
-    "noImplicitThis": false,
-    "preserveConstEnums": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "noImplicitReturns": true,
-    "moduleResolution": "node",
-    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
+    "outDir": "build",
+    "module": "esnext",
+    "target": "es6",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "baseUrl": "./"
   },
-  "include": ["src/*.ts", "src/*.tsx", "global.d.ts", "lowcode/**/*.ts", "lowcode/**/*.tsx", "src/components/container/index.tsx", "src/components/navbar/index.tsx", "src/components/RGLContainer/index.tsx", "src/components/swiper/index.tsx"],
-  "exclude": ["node_modules", "lib"]
+  "include": ["src/*.ts", "src/*.tsx", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "build", "public"]
 }

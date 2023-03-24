@@ -1,6 +1,6 @@
 import React, { FC,CSSProperties } from 'react';
 
-interface ButtonProps {
+interface TemplateProps {
   title: string;
   /**
    * 自定义样式
@@ -8,7 +8,7 @@ interface ButtonProps {
   style?: CSSProperties;
 }
 
-const Button: FC<ButtonProps> = (props) => {
+const Template: FC<TemplateProps> = (props) => {
   const { title, style } = props;
   return (
     <button style={style} type="button" className="btn btn-primary">
@@ -17,6 +17,6 @@ const Button: FC<ButtonProps> = (props) => {
   );
 };
 
-Button.displayName = 'Button';
+Template.displayName = 'Button';
 
-export default Button;
+export default Template;

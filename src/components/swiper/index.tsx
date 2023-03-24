@@ -1,4 +1,4 @@
-import { createElement, CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
 // import required modules
 import {

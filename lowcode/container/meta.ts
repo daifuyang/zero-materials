@@ -75,6 +75,8 @@ const ContainerMeta: ComponentMetadata = {
   experimental: {
     callbacks: {},
   },
+  category: '容器',
+  group: '组件',
 };
 const snippets: Snippet[] = [
   {
