@@ -8,7 +8,7 @@ const Meta: ComponentMetadata = {
     'https://img.alicdn.com/imgextra/i3/O1CN01tnhXhk1GUIFhsXwzA_!!6000000000625-55-tps-56-56.svg',
   devMode: 'proCode',
   npm: {
-    package: 'ssr-materials',
+    package: 'zero-materials',
     version: '0.1.0',
     exportName: "Image",
     main: 'src/index.tsx',

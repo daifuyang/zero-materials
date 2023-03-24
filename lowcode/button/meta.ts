@@ -8,7 +8,7 @@ const SwiperMeta: ComponentMetadata = {
     'https://alifd.oss-cn-hangzhou.aliyuncs.com/fusion-cool/icons/icon-light/ic_light_slider.png',
   devMode: 'proCode',
   npm: {
-    package: 'ssr-materials',
+    package: 'zero-materials',
     version: '0.1.0',
     exportName: "Button",
     main: 'src/index.tsx',

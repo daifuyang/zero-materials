@@ -1,5 +1,5 @@
 {
-  "name": "ssr-materials",
+  "name": "zero-materials",
   "version": "0.1.0",
   "description": "服务端渲染的低代码建站物料",
   "main": "lib/index.js",
@@ -80,6 +80,6 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/ssr-materials@0.1.0/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/zero-materials@0.1.0/build/lowcode/assets-prod.json"
   }
 }

@@ -1,4 +1,4 @@
-# ssr-materials
+# zero-materials
 
 ## 前言
 适用于[阿里低代码引擎](https://lowcode-engine.cn)需要服务端渲染的低代码建站物料

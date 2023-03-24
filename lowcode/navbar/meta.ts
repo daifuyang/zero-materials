@@ -7,7 +7,7 @@ const NavbarMeta: ComponentMetadata = {
   screenshot: '',
   devMode: 'proCode',
   npm: {
-    package: 'ssr-materials',
+    package: 'zero-materials',
     version: '0.1.0',
     exportName: "Navbar",
     main: 'src/index.tsx',
