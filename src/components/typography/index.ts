@@ -1,3 +1,5 @@
 import Title from './Title';
+import Text from './Text';
+import Link from './Link';
 
-export { Title };
+export { Title, Text, Link };

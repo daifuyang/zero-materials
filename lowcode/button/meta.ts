@@ -1,11 +1,11 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
-const SwiperMeta: ComponentMetadata = {
+const Meta: ComponentMetadata = {
   componentName: "Button",
   title: '按钮',
   docUrl: '',
   screenshot:
-    'https://alifd.oss-cn-hangzhou.aliyuncs.com/fusion-cool/icons/icon-light/ic_light_slider.png',
+    '',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
@@ -79,6 +79,7 @@ const SwiperMeta: ComponentMetadata = {
     ],
     supports: {
       style: true,
+      loop: false,
     },
     component: {},
     advanced: {},
@@ -103,6 +104,6 @@ const snippets: Snippet[] = [
 ];
 
 export default {
-  ...SwiperMeta,
+  ...Meta,
   snippets,
 };

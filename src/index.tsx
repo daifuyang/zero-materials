@@ -5,11 +5,15 @@ export { default as Container } from './components/container';
 export { default as Navbar } from './components/navbar';
 export { default as Swiper } from './components/swiper';
 
-export { Title } from './components/typography';
+export { Title, Text, Link } from './components/typography';
 
+export { Row,Col } from './components/row';
 
 export * from './components/button';
-export * from './components/Image';
+export * from './components/image';
+export * from './components/menu';
+export * from './components/block';
+
 export * from './variables';
 
 const bizCssPrefix = 'zero-ui';

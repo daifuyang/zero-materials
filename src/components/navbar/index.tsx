@@ -1,23 +1,33 @@
-import React, {
-  CSSProperties,
-} from 'react';
+import React, { CSSProperties } from 'react';
+
+import cx from 'classnames';
 
 interface NavbarProps {
+  /**
+   * logo
+   */
+  logo?: React.ReactNode;
+  /**
+   * 菜单
+   */
+  menu?: React.ReactNode;
   /**
    * 自定义样式
    */
   style?: CSSProperties;
-  classNameName?: string;
+  className?: string;
 }
 
-const Navbar:React.FC<NavbarProps> = function (props) {
-  const { style } = props;
+const Navbar: React.FC<NavbarProps> = function (props) {
+  const { style, logo, menu, className } = props;
+
   return (
-    <nav style={style} className={"navbar navbar-expand-lg bg-body-tertiary"}>
+    <nav
+      style={style}
+      className={cx('navbar navbar-expand-lg bg-body-tertiary', { [className]: !!className })}
+    >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Navbar
-        </a>
+        <div className="logo">{logo}</div>
         <button
           className="navbar-toggler"
           type="button"
@@ -30,52 +40,9 @@ const Navbar:React.FC<NavbarProps> = function (props) {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
+          
+          {menu}
+
           <form className="d-flex" role="search">
             <input
               className="form-control me-2"

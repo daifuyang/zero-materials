@@ -1,16 +1,16 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
 const Meta: ComponentMetadata = {
-  componentName: "Image",
-  title: '图片',
+  componentName: "Text",
+  title: '正文',
   docUrl: '',
   screenshot:
-    'https://img.alicdn.com/imgextra/i3/O1CN01tnhXhk1GUIFhsXwzA_!!6000000000625-55-tps-56-56.svg',
+    'https://img.alicdn.com/imgextra/i3/O1CN01n5wpxc1bi862KuXFz_!!6000000003498-55-tps-50-50.svg',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: "Image",
+    exportName: "Text",
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
@@ -18,21 +18,14 @@ const Meta: ComponentMetadata = {
   configure: {
     props: [
       {
-        name: 'src',
+        name: 'children',
         title: {
-          label: '图片链接',
+          label: '正文',
+          tip: '按钮显示的正文',
         },
         setter: 'StringSetter',
-        defaultValue: "https://img.alicdn.com/tps/TB16TQvOXXXXXbiaFXXXXXXXXXX-120-120.svg",
-      },
-      {
-        name: 'alt',
-        title: '替代文本',
-        setter: 'StringSetter',
-        defaultValue: "alt",
-       
-      },
-
+        defaultValue: "默认正文",
+      }
     ],
     supports: {
       style: true,
@@ -46,14 +39,15 @@ const Meta: ComponentMetadata = {
   },
   category: '基础',
   group: '组件',
+  priority: '9998'
 };
 const snippets: Snippet[] = [
   {
-    title: '图片',
+    title: '正文',
     screenshot:
-      'https://img.alicdn.com/imgextra/i3/O1CN01tnhXhk1GUIFhsXwzA_!!6000000000625-55-tps-56-56.svg',
+      'https://img.alicdn.com/imgextra/i3/O1CN01n5wpxc1bi862KuXFz_!!6000000003498-55-tps-50-50.svg',
     schema: {
-      componentName: "Image",
+      componentName: "Text",
       props: {},
       children: [],
     },

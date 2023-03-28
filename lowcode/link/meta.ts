@@ -1,16 +1,16 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
 const Meta: ComponentMetadata = {
-  componentName: "Title",
-  title: '标题',
+  componentName: "Link",
+  title: '链接',
   docUrl: '',
   screenshot:
-    'https://img.alicdn.com/imgextra/i4/O1CN01E2PcPW1bKJV5QUVMg_!!6000000003446-55-tps-50-50.svg',
+    '',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: "Title",
+    exportName: "Link",
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
@@ -20,43 +20,46 @@ const Meta: ComponentMetadata = {
       {
         name: 'children',
         title: {
-          label: '标题',
-          tip: '按钮显示的标题',
+          label: '内容',
         },
-        setter: 'StringSetter',
-        defaultValue: "标题",
+        setter: 'TextAreaSetter',
+        defaultValue: "默认链接",
       },
       {
-        name: 'level',
+        name: 'href',
         title: {
-          label: '标题',
-          tip: '按钮显示的标题',
+          label: '跳转链接',
+        },
+        setter: 'StringSetter',
+        defaultValue: "",
+      },
+      {
+        name: 'target',
+        title: {
+          label: '跳转位置',
+          tip: '在何处显示链接的资源'
         },
         setter: {
           componentName: 'SelectSetter',
-          initialValue: 1,
+          initialValue: '_self',
           props: {
             mode:'single',
             options: [
               {
-                title: 'h1',
-                value: 1,
+                title: '当前窗口',
+                value: '_self',
               },
               {
-                title: 'h2',
-                value: 2,
+                title: '新窗口',
+                value: '_blank',
               },
               {
-                title: 'h3',
-                value: 3,
+                title: '父窗口',
+                value: '_parent',
               },
               {
-                title: 'h4',
-                value: 4,
-              },
-              {
-                title: 'h5',
-                value: 5,
+                title: '顶级窗口',
+                value: '_top',
               },
             ]
           },
@@ -75,15 +78,14 @@ const Meta: ComponentMetadata = {
   },
   category: '基础',
   group: '组件',
-  priority: '9999'
 };
 const snippets: Snippet[] = [
   {
-    title: '标题',
+    title: '链接',
     screenshot:
-      'https://img.alicdn.com/imgextra/i4/O1CN01E2PcPW1bKJV5QUVMg_!!6000000003446-55-tps-50-50.svg',
+      'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-link-1.png',
     schema: {
-      componentName: "Title",
+      componentName: "Link",
       props: {},
       children: [],
     },
