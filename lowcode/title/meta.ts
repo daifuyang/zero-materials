@@ -2,7 +2,7 @@ import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
 const Meta: ComponentMetadata = {
   componentName: "Title",
-  title: '标题',
+  title: '标题内容',
   docUrl: '',
   screenshot:
     'https://img.alicdn.com/imgextra/i4/O1CN01E2PcPW1bKJV5QUVMg_!!6000000003446-55-tps-50-50.svg',
@@ -20,8 +20,8 @@ const Meta: ComponentMetadata = {
       {
         name: 'children',
         title: {
-          label: '标题',
-          tip: '按钮显示的标题',
+          label: '重要程度',
+          tip: '相当于 h1、h2、h3、h4、h5',
         },
         setter: 'StringSetter',
         defaultValue: "标题",

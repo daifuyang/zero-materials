@@ -24,10 +24,39 @@ const Meta: ComponentMetadata = {
           tip: '按钮显示的正文',
         },
         setter: 'StringSetter',
-        defaultValue: "默认正文",
-      }
+        defaultValue: "",
+      },
+      {
+        name: 'ellipsis',
+        title: {
+          label: '溢出省略',
+          tip: '自动溢出省略',
+        },
+        setter: {
+          componentName: 'SelectSetter',
+          initialValue: '',
+          props: {
+            mode:'single',
+            options: [
+              {
+                title: '不隐藏',
+                value: '',
+              },
+              {
+                title: '显示一行',
+                value: '1',
+              },
+              {
+                title: '显示两行',
+                value: '2',
+              },
+            ]
+          },
+        }
+      },
     ],
     supports: {
+      className: true,
       style: true,
       loop: false,
     },

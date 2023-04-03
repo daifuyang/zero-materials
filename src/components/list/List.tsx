@@ -1,6 +1,6 @@
 import React, { FC, CSSProperties, ReactNode } from 'react';
 
-interface BlockProps {
+interface ListProps {
   title: string;
   /**
    * 自定义样式
@@ -12,10 +12,10 @@ interface BlockProps {
   children?: ReactNode;
 }
 
-const Block: FC<BlockProps> = (props) => {
+const List: FC<ListProps> = (props) => {
   const { children, ...otherProps } = props;
   return <div {...otherProps}>{children}</div>;
 };
 
-Block.displayName = 'Block';
-export { Block };
+List.displayName = 'List';
+export { List };

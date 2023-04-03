@@ -1,60 +1,51 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
 const Meta: ComponentMetadata = {
-  componentName: 'Row',
-  title: '栅格一行',
+  componentName: 'RichText',
+  title: '富文本',
   docUrl: '',
   screenshot: '',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: 'Row',
+    exportName: 'RichText',
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
   },
   configure: {
-    component: {
-      isContainer: true,
-      nestingRule: {
-        childWhitelist: ['Col'],
+    props: [
+      {
+        name: 'html',
+        title: '内容',
+        description: '高级',
+        display: 'block',
+        setter: 'EditSetter',
       },
-    },
+    ],
     supports: {
       style: true,
       loop: false,
     },
+    component: {},
     advanced: {},
   },
   experimental: {
     callbacks: {},
   },
-  category: '容器',
+  category: '基础',
   group: '组件',
 };
 const snippets: Snippet[] = [
   {
-    title: '栅格一行',
+    title: '富文本',
     screenshot:
-      'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-1.png',
+      'https://img.alicdn.com/imgextra/i3/O1CN01G7Lc8e1pZL7p4cdKc_!!6000000005374-2-tps-112-112.png',
     schema: {
-      componentName: 'Row',
+      componentName: 'RichText',
       props: {},
-      children: [
-        {
-          componentName: 'Col',
-          props: {
-            span: 6,
-          },
-        },
-        {
-          componentName: 'Col',
-          props: {
-            span: 6,
-          },
-        },
-      ],
+      children: [],
     },
   },
 ];

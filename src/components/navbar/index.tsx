@@ -11,6 +11,7 @@ interface NavbarProps {
    * 菜单
    */
   menu?: React.ReactNode;
+  extra?: React.ReactNode;
   /**
    * 自定义样式
    */
@@ -19,13 +20,10 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = function (props) {
-  const { style, logo, menu, className } = props;
+  const { style, logo, menu, extra, className } = props;
 
   return (
-    <nav
-      style={style}
-      className={cx('navbar navbar-expand-lg bg-body-tertiary', { [className]: !!className })}
-    >
+    <nav style={style} className={cx('navbar navbar-expand-lg', { [className]: !!className })}>
       <div className="container-fluid">
         <div className="logo">{logo}</div>
         <button
@@ -40,20 +38,8 @@ const Navbar: React.FC<NavbarProps> = function (props) {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          
           {menu}
-
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+          {extra}
         </div>
       </div>
     </nav>

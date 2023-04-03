@@ -19,6 +19,5 @@ const Image: FC<ImageProps> = (props) => {
   return <img alt={alt} src={src} style={style} />;
 };
 
-Image.displayName = 'Button';
-
+Image.displayName = 'Image';
 export { Image };

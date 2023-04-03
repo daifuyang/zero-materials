@@ -65,7 +65,7 @@ const ContainerMeta: ComponentMetadata = {
     ],
     supports: {
       style: true,
-      loop:false,
+      loop:true,
     },
     component: {
       isContainer: true,

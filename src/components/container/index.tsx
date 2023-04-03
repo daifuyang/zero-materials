@@ -1,8 +1,8 @@
 import React, {
-  forwardRef,
+  FC,
   CSSProperties,
-  ForwardRefRenderFunction,
   ReactNode,
+  forwardRef,
 } from 'react';
 
 import cx from 'classnames';
@@ -21,8 +21,8 @@ interface ContainerProps {
   children?: ReactNode;
 }
 
-const Container: ForwardRefRenderFunction<HTMLDivElement, ContainerProps> = (props, ref) => {
-  const { className, absolute, children, style = {}, isDraging } = props;
+const Container: FC<ContainerProps> = (props: any) => {
+  const { className, absolute, children, style = {}, containerRef , isDraging } = props;
   const _style = {...style} || {};
   if (absolute) {
     _style.position = 'relative';
@@ -33,7 +33,7 @@ const Container: ForwardRefRenderFunction<HTMLDivElement, ContainerProps> = (pro
   return (
     <div
       style={_style}
-      ref={ref}
+      ref={containerRef}
       className={cx({
         'zero-ui-container': true,
         [className]: !!className,
@@ -43,7 +43,7 @@ const Container: ForwardRefRenderFunction<HTMLDivElement, ContainerProps> = (pro
         style={{
           position: 'relative',
           height: _style.height,
-          border: isDraging ? '1px solid blue' : '',
+          border: isDraging ? '1px solid blue' : undefined,
         }}
       >
         {children}
@@ -52,14 +52,12 @@ const Container: ForwardRefRenderFunction<HTMLDivElement, ContainerProps> = (pro
   );
 };
 
-const RefContainer = forwardRef(Container);
+Container.displayName = 'container';
 
-RefContainer.displayName = 'container';
-
-RefContainer.defaultProps = {
+Container.defaultProps = {
   className: '',
   children: null,
   style: {},
 };
 
-export default RefContainer;
+export default Container;

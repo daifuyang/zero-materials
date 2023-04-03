@@ -68,9 +68,11 @@ const Meta: ComponentMetadata = {
     ],
     supports: {
       style: true,
-      loop: false,
+      loop: true,
     },
-    component: {},
+    component: {
+      isContainer: true,
+    },
     advanced: {},
   },
   experimental: {

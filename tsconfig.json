@@ -3,6 +3,7 @@
   "buildOnSave": false,
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "outDir": "build",
     "module": "esnext",

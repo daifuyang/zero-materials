@@ -4,11 +4,41 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+p {
   margin: 0;
   padding: 0;
 }
 
 p {
   line-height: unset;
+}
+
+a {
+  cursor: pointer;
+}
+
+.ellipsis-1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ellipsis-2 {
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.icon {
+  width: 3em; height: 3em;
+  vertical-align: -0.15em;
+  fill: #000;
+  overflow: hidden;
+}
+
+svg path {
+  fill: currentColor;
 }

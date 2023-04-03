@@ -4,7 +4,7 @@ import hoistNonReactStatic from 'hoist-non-react-statics';
 
 import type { IPublicModelNode } from '@alilc/lowcode-types';
 
-import { RGLContainer, Container } from '../src';
+import { Container } from '../src';
 
 function debounce(func, wait = 500) {
   let timeOut;
@@ -146,42 +146,10 @@ const AbslouteContainerView = (props: { _leaf?: IPublicModelNode; [key: string]:
     ref.current?.addEventListener('pointerup', debounce(onEnd, 10));
   }
 
-  return <Container isDraging={isDraging} ref={ref} {...others} />;
-};
-
-const RGLContainerView = (props: { _leaf?: IPublicModelNode; [key: string]: any }) => {
-  const ref = useRef();
-
-  const { _leaf, ...others } = props;
-
-  // hack engine for mousedown
-  if (_leaf?.parent) {
-    _leaf.parent.isRGLContainerNode = true;
-  }
-
-  if (ref) {
-    console.log('ref.current', ref.current);
-    ref.current?.addEventListener('touchmove', (e) => {
-      console.log('e', e);
-    });
-  }
-
-  const PLACEHOLDERKEY = 'placeholdkey';
-
-  const onLayoutChange = (layout) => {
-    // 过滤因为dragover增加了—dropping-elem__ 导致的数据更新；
-    const isDragover = layout.some((item: any) => item.i === PLACEHOLDERKEY);
-    if (!isDragover) {
-      const saveLayout = layout.filter((item) => !!item.i);
-      if (_leaf) _leaf.setPropValue('layout', saveLayout);
-    }
-  };
-
-  return <RGLContainer ref={ref} onLayoutChange={onLayoutChange} {...others} />;
+  return <Container isDraging={isDraging} containerRef={ref} {...others} />;
 };
 
 hoistNonReactStatic(AbslouteContainerView, Container);
 
-hoistNonReactStatic(RGLContainerView, RGLContainer);
 
-export { RGLContainerView as RGLContainer, AbslouteContainerView as Container };
+export { AbslouteContainerView as Container };

@@ -1,16 +1,15 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
 const Meta: ComponentMetadata = {
-  componentName: "Block",
+  componentName: "Div",
   title: '区块',
   docUrl: '',
-  screenshot:
-    '',
+  screenshot:'',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: "Block",
+    exportName: "Div",
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
@@ -19,12 +18,13 @@ const Meta: ComponentMetadata = {
     props: [
       
     ],
-    supports: {
-      style: true,
-      loop: false,
-    },
     component: {
       isContainer: true,
+    },
+    supports: {
+      className: true,
+      style: true,
+      loop: true,
     },
     advanced: {},
   },
@@ -40,7 +40,7 @@ const snippets: Snippet[] = [
     screenshot:
       'https://img.alicdn.com/imgextra/i3/O1CN018CwRJM1ZkIpmeEfRD_!!6000000003232-55-tps-128-128.svg',
     schema: {
-      componentName: "Block",
+      componentName: "Div",
       props: {},
       children: [],
     },

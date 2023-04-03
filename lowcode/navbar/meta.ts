@@ -75,6 +75,33 @@ const NavbarMeta: ComponentMetadata = {
           },
         },
       },
+      {
+        title: '其他菜单',
+        name: 'extra',
+        setter: {
+          componentName: 'SlotSetter',
+          props: {
+            mode: 'node',
+          },
+          isRequired: true,
+          initialValue: {
+            type: 'JSSlot',
+            value: [
+              {
+                componentName: 'Div' ,
+                props: {
+                 
+                },
+                hidden: false,
+                title: '',
+                isLocked: false,
+                condition: true,
+                conditionGroup: '',
+              },
+            ],
+          },
+        },
+      },
     ],
     supports: {
       style: true,

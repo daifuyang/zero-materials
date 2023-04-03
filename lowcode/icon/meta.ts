@@ -1,60 +1,52 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
 const Meta: ComponentMetadata = {
-  componentName: 'Row',
-  title: '栅格一行',
+  componentName: "Icon",
+  title: '图标',
   docUrl: '',
-  screenshot: '',
+  screenshot:'',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: 'Row',
+    exportName: "Icon",
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
   },
   configure: {
-    component: {
-      isContainer: true,
-      nestingRule: {
-        childWhitelist: ['Col'],
+    props: [
+      {
+        name: 'icon',
+        title: '图标',
+        setter: 'StringSetter',
+        defaultValue: "",
+       
       },
-    },
+
+    ],
     supports: {
       style: true,
       loop: false,
     },
+    component: {},
     advanced: {},
   },
   experimental: {
     callbacks: {},
   },
-  category: '容器',
+  category: '基础',
   group: '组件',
 };
 const snippets: Snippet[] = [
   {
-    title: '栅格一行',
+    title: '图标',
     screenshot:
-      'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-1.png',
+      'https://img.alicdn.com/imgextra/i1/O1CN01yR8vcY1M504YbHxzo_!!6000000001382-55-tps-56-56.svg',
     schema: {
-      componentName: 'Row',
+      componentName: "Icon",
       props: {},
-      children: [
-        {
-          componentName: 'Col',
-          props: {
-            span: 6,
-          },
-        },
-        {
-          componentName: 'Col',
-          props: {
-            span: 6,
-          },
-        },
-      ],
+      children: [],
     },
   },
 ];

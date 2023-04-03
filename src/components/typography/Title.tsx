@@ -18,4 +18,5 @@ const Title: React.FC<TitleProps> = (props) => {
 
   return <Component {...restProps} />;
 };
+Title.displayName = 'Title';
 export default Title;

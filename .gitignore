@@ -1,4 +1,7 @@
 .fie/
 .tmp/
 build/
+dist/
+es/
+lib/
 node_modules/

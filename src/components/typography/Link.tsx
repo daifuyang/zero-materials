@@ -18,12 +18,13 @@ const Link: React.FC<LinkProps> = (props) => {
     innerProps.href = undefined;
   }
 
-  const { children,style = {color:'#1677ff'}, ...otherProps } = props;
+  const { children = '默认链接',style = {color:'#1677ff'}, ...otherProps } = props;
   
   return (
     <a style={style} {...otherProps} {...innerProps}>
-      {children || '默认链接'}
+      {children}
     </a>
   );
 };
+Link.displayName = 'Link';
 export default Link;
