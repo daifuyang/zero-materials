@@ -7,19 +7,21 @@ interface BreadcrumbProps {
    * 孩子节点
    */
   items?: any;
+  link?: keyof JSX.IntrinsicElements;
 }
 
 const renderItems = (props: any) => {
-  const { items = [], ...otherProps } = props;
-  if (items?.length === 0) {
+  const { items = [], link, __designMode, ...otherProps } = props;
+  let Link: keyof JSX.IntrinsicElements = 'a';
+  if (items?.length === 0 && __designMode) {
     return (
       <nav {...otherProps} aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
-            <a href="#">Home</a>
+            <Link href="#">Home</Link>
           </li>
           <li className="breadcrumb-item">
-            <a href="#">Library</a>
+            <Link href="#">Library</Link>
           </li>
           <li className="breadcrumb-item active" aria-current="page">
             Data
@@ -32,6 +34,11 @@ const renderItems = (props: any) => {
     <nav {...otherProps} aria-label="breadcrumb">
       <ol className="breadcrumb">
         {items.map((item: any = {}, i: number) => {
+          const _href = item.href;
+          Link = 'a';
+          if (link && !!_href) {
+            Link = link;
+          }
           return (
             <li
               key={item.key}
@@ -40,7 +47,7 @@ const renderItems = (props: any) => {
                 // eslint-disable-next-line react/no-danger
               }
             >
-              <a href={item.href}>{item.title || '导航'}</a>
+              <Link href={_href}>{item.title || '导航'}</Link>
             </li>
           );
         })}

@@ -6,16 +6,18 @@ import type { IPublicModelNode } from '@alilc/lowcode-types';
 
 import { Container } from '../src';
 
-function debounce(func, wait = 500) {
-  let timeOut;
-  return function () {
-    const content = this;
-    const arg = arguments;
-    if (timeOut) {
-      clearTimeout(timeOut);
-    }
-    timeOut = setTimeout(() => {
-      func.apply(content, arg);
+function debounce(fn: Function, wait = 50) {
+  // 通过闭包缓存一个定时器 id
+  let timer: any = null;
+  // 将 debounce 处理结果当作函数返回
+  // 触发事件回调时执行这个返回函数
+  return  (...args: any) => {
+    // 如果已经设定过定时器就清空上一次的定时器
+    if (timer) clearTimeout(timer);
+
+    // 开始设定一个新的定时器，定时器结束后执行传入的函数 fn
+    timer = setTimeout(() => {
+      fn.apply(this, args);
     }, wait);
   };
 }
@@ -38,7 +40,7 @@ const AbslouteContainerView = (props: { _leaf?: IPublicModelNode; [key: string]:
 
   let oldStyle: any = {};
 
-  let selectedNode = null;
+  let selectedNode:any = null;
 
   if (ref.current && props.absolute) {
     const onStart = function (e) {
@@ -91,7 +93,7 @@ const AbslouteContainerView = (props: { _leaf?: IPublicModelNode; [key: string]:
         // 新位置 = top + 移动趋势
         const newTop = Number(oldY) + distanceY;
 
-        const style: any = {...oldStyle};
+        const style: any = { ...oldStyle };
         // 往右
         if (distanceX >= 0) {
           if (newLeft + eleWidth < parentWidth) {
@@ -150,6 +152,5 @@ const AbslouteContainerView = (props: { _leaf?: IPublicModelNode; [key: string]:
 };
 
 hoistNonReactStatic(AbslouteContainerView, Container);
-
 
 export { AbslouteContainerView as Container };

@@ -64,6 +64,7 @@ const Meta: ComponentMetadata = {
       },
     ],
     supports: {
+      className: true,
       style: true,
       loop: false,
     },

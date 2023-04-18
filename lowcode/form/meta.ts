@@ -1,16 +1,15 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
 const Meta: ComponentMetadata = {
-  componentName: 'Div',
-  title: '区块',
+  componentName: 'Form',
+  title: '表单',
   docUrl: '',
   screenshot: '',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: 'Div',
-    main: 'src/index.tsx',
+    exportName: 'Form',
     destructuring: true,
     subName: '',
   },
@@ -35,15 +34,15 @@ const Meta: ComponentMetadata = {
     callbacks: {},
   },
   category: '容器',
-  group: '组件',
+  group: '表单',
 };
 const snippets: Snippet[] = [
   {
-    title: '区块',
+    title: '表单',
     screenshot:
-      'https://img.alicdn.com/imgextra/i3/O1CN018CwRJM1ZkIpmeEfRD_!!6000000003232-55-tps-128-128.svg',
+      'https://img.alicdn.com/tfs/TB1oH02u2b2gK0jSZK9XXaEgFXa-112-64.png',
     schema: {
-      componentName: 'Div',
+      componentName: 'Form',
       props: {},
       children: [],
     },
@@ -52,5 +51,5 @@ const snippets: Snippet[] = [
 
 export default {
   ...Meta,
-  snippets,
+  // snippets,
 };

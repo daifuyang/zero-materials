@@ -1,21 +1,15 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
-import { itemsExtraProps } from './utils';
-
-function uuid() {
-  return ((Math.random() * 1e6) >> 0).toString(36);
-}
 
 const Meta: ComponentMetadata = {
-  componentName: "Menu",
+  componentName: 'Menu',
   title: '导航菜单',
   docUrl: '',
-  screenshot:
-    '',
+  screenshot: '',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: "Menu",
+    exportName: 'Menu',
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
@@ -25,70 +19,51 @@ const Meta: ComponentMetadata = {
       {
         name: 'items',
         title: '菜单项',
-        setter: {
-          componentName: 'ArraySetter',
-          props: {
-            itemSetter: {
-              componentName: 'ObjectSetter',
-              props: {
-                config: {
-                  items: [
-                    {
-                      name: 'key',
-                      title: 'key',
-                      setter: 'StringSetter',
-                      initialValue: (val) => val || uuid(),
-                    },
-                    {
-                      name: 'title',
-                      title: '菜单名称',
-                      isRequired:true,
-                      setter: 'StringSetter',
-                    },
-                    {
-                      name: 'href',
-                      title: '跳转链接',
-                      isRequired:true,
-                      setter: 'StringSetter',
-                    },
-                    {
-                      name: 'subMenu',
-                      title: '包含子项',
-                      isRequired:true,
-                      setter: {
-                        componentName: 'SlotSetter',
-                        isRequired: true,
-                        title: '组件坑位',
-                        initialValue: {
-                          type: 'JSSlot',
-                          value: [],
-                        },
-                      }
-                    }
-                  ],
-                },
-              },
-              initialValue: () => {
-                return {
-                  key: 'item-' + uuid(),
-                  title: '菜单名',
-                  href: '',
-                  subMenu: false
-                };
-              },
-            },
-          },
+        setter: 'JsonSetter',
+      },
+      {
+        name: 'fontSize',
+        title: {
+          label: '字体大小',
+          tip: '菜单字体大小，单位px',
         },
-        extraProps: itemsExtraProps,
+        setter: 'NumberSetter',
+        defaultValue: '20',
+      },
+      {
+        name: 'color',
+        title: {
+          label: '字体颜色',
+          tip: '菜单字体颜色',
+        },
+        setter: 'ColorSetter',
+        defaultValue: '#000000',
+      },
+      {
+        name: 'hoverColor',
+        title: {
+          label: '字体悬浮颜色',
+          tip: '菜单字体悬浮颜色',
+        },
+        setter: 'ColorSetter',
+        defaultValue: '#1677ff',
+      },
+      {
+        name: 'bgColor',
+        title: {
+          label: '背景颜色',
+          tip: '菜单背景颜色',
+        },
+        setter: 'ColorSetter',
+        defaultValue: '',
       },
     ],
     supports: {
+      className: true,
       style: true,
       loop: false,
     },
-    component: {
-     
-    },
+    component: {},
     advanced: {},
   },
   experimental: {
@@ -100,10 +75,9 @@ const Meta: ComponentMetadata = {
 const snippets: Snippet[] = [
   {
     title: '导航菜单',
-    screenshot:
-      'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/menu-1.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/menu-1.jpg',
     schema: {
-      componentName: "Menu",
+      componentName: 'Menu',
       props: {},
       children: [],
     },

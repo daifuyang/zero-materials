@@ -23,6 +23,7 @@ interface SwiperProps {
   direction?: 'horizontal' | 'vertical';
   autoplay?: boolean;
   delay?: number;
+  items: any;
   effect?: 'slide' | 'fade' | 'cube' | 'coverflow' | 'flip' | 'creative' | 'cards';
   __designMode?: string;
 }
@@ -32,6 +33,7 @@ const Swiper = (props: SwiperProps) => {
     style = {
       height: 300,
     },
+    items = [],
     navigation,
     pagination,
     direction,
@@ -49,42 +51,42 @@ const Swiper = (props: SwiperProps) => {
     : false;
 
   return (
-    <SwiperReact
-      allowTouchMove={__designMode !== 'design'}
-      observer
-      observeParents
-      observeSlideChildren
-      autoplay={auto}
-      direction={direction}
-      effect={effect}
-      style={style}
-      navigation={navigation}
-      pagination={pagination}
-      modules={[
-        Autoplay,
-        Navigation,
-        Pagination,
-        EffectFade,
-        EffectCube,
-        EffectCoverflow,
-        EffectFlip,
-        EffectCards,
-        EffectCreative,
-      ]}
-    >
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-      </SwiperSlide>
-    </SwiperReact>
+    <>
+      {items?.length === 0 && <div style={{...style,display:'flex',alignItems:'center',justifyContent:'center',border:'1px solid #999'}}>请选择一个轮播图</div>}
+      {items?.length > 0 && (
+        <SwiperReact
+          allowTouchMove={__designMode !== 'design'}
+          observer
+          observeParents
+          observeSlideChildren
+          autoplay={auto}
+          direction={direction}
+          effect={effect}
+          style={style}
+          navigation={navigation}
+          pagination={pagination}
+          modules={[
+            Autoplay,
+            Navigation,
+            Pagination,
+            EffectFade,
+            EffectCube,
+            EffectCoverflow,
+            EffectFlip,
+            EffectCards,
+            EffectCreative,
+          ]}
+        >
+          {items.map((item: any = {}, key: number) => {
+            return (
+              <SwiperSlide>
+                <img key={key} src={item.src || 'https://swiperjs.com/demos/images/nature-1.jpg'} />
+              </SwiperSlide>
+            )
+          })}
+        </SwiperReact>
+      )}
+    </>
   );
 };
 

@@ -23,6 +23,6 @@
     },
     "baseUrl": "./"
   },
-  "include": ["src/*.ts", "src/*.tsx", "src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/*.ts", "src/*.tsx", "src/**/*.ts", "src/**/*.tsx", "lowcode/*.tsx","lowcode/**/*.tsx"],
   "exclude": ["node_modules", "build", "public"]
 }

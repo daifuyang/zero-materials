@@ -4,7 +4,6 @@
   "description": "服务端渲染的低代码建站物料",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "lowcodeEditMain": "build/lowcode/view.js",
   "typings": "types/index.d.ts",
   "files": [
     "build",
@@ -63,8 +62,8 @@
     "f2elint": "^1.2.0"
   },
   "dependencies": {
-    "@alifd/next": "^1.25.27",
     "@alilc/build-plugin-alt": "^1.3.2",
+    "@ant-design/icons": "^5.0.1",
     "prop-types": "^15.5.8",
     "react": "^16.x",
     "react-dom": "^16.x",

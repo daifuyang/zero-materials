@@ -21,39 +21,44 @@ const Meta: ComponentMetadata = {
       {
         name: 'items',
         title: '菜单项',
-        setter: {
-          componentName: 'ArraySetter',
-          props: {
-            itemSetter: {
-              componentName: 'ObjectSetter',
-              props: {
-                config: {
-                  items: [
-                    {
-                      name: 'key',
-                      title: 'key',
-                      setter: 'StringSetter',
-                      initialValue: (val) => val || uuid(),
-                    },
-                    {
-                      name: 'title',
-                      title: '菜单名称',
-                      isRequired: true,
-                      setter: 'StringSetter',
-                    },
-                    {
-                      name: 'href',
-                      title: '跳转链接',
-                      isRequired: true,
-                      setter: 'StringSetter',
-                    },
-                  ],
-                },
-              },
-            },
-          },
-        },
-      },
+        setter: 'JsonSetter',
+      }
+      // {
+      //   name: 'items',
+      //   title: '菜单项',
+      //   setter: {
+      //     componentName: 'ArraySetter',
+      //     props: {
+      //       itemSetter: {
+      //         componentName: 'ObjectSetter',
+      //         props: {
+      //           config: {
+      //             items: [
+      //               {
+      //                 name: 'key',
+      //                 title: 'key',
+      //                 setter: 'StringSetter',
+      //                 initialValue: (val) => val || uuid(),
+      //               },
+      //               {
+      //                 name: 'title',
+      //                 title: '菜单名称',
+      //                 isRequired: true,
+      //                 setter: 'StringSetter',
+      //               },
+      //               {
+      //                 name: 'href',
+      //                 title: '跳转链接',
+      //                 isRequired: true,
+      //                 setter: 'StringSetter',
+      //               },
+      //             ],
+      //           },
+      //         },
+      //       },
+      //     },
+      //   },
+      // },
     ],
     component: {},
     supports: {
@@ -66,7 +71,7 @@ const Meta: ComponentMetadata = {
   experimental: {
     callbacks: {},
   },
-  category: '容器',
+  category: '导航',
   group: '组件',
 };
 const snippets: Snippet[] = [

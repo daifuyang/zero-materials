@@ -1,35 +1,39 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
 const Meta: ComponentMetadata = {
-  componentName: 'Div',
-  title: '区块',
+  componentName: "Footer",
+  title: '公共页脚',
   docUrl: '',
-  screenshot: '',
+  screenshot:'',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: 'Div',
+    exportName: "Footer",
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
   },
   configure: {
-    props: [],
+    props: [
+      
+    ],
     component: {
       isContainer: true,
+      disableBehaviors: '*',
     },
     supports: {
       className: true,
       style: true,
-      events: [
-        {
-          name: 'onClick',
-        }
-      ],
       loop: true,
     },
-    advanced: {},
+    advanced: {
+      callbacks: {
+        onMoveHook() {
+          return false;
+        },
+      },
+    },
   },
   experimental: {
     callbacks: {},
@@ -37,18 +41,7 @@ const Meta: ComponentMetadata = {
   category: '容器',
   group: '组件',
 };
-const snippets: Snippet[] = [
-  {
-    title: '区块',
-    screenshot:
-      'https://img.alicdn.com/imgextra/i3/O1CN018CwRJM1ZkIpmeEfRD_!!6000000003232-55-tps-128-128.svg',
-    schema: {
-      componentName: 'Div',
-      props: {},
-      children: [],
-    },
-  },
-];
+const snippets: Snippet[] = [];
 
 export default {
   ...Meta,

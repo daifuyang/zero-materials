@@ -1,29 +1,43 @@
 import React from 'react';
 
 interface LinkProps {
+  link?: keyof JSX.IntrinsicElements;
   href?: string;
+  rel?: string;
   target: '_self' | '_blank' | '_parent' | '_top';
   style: React.CSSProperties;
   /**
    * 孩子节点
    */
   children?: React.ReactNode;
+  __designMode?: string;
 }
 
 const Link: React.FC<LinkProps> = (props) => {
+  const {
+    link,
+    href,
+    children = '默认链接',
+    style = { color: '#1677ff' },
+    target,
+    ...otherProps
+  } = props;
 
-  const innerProps: any = {};
-  if (!props.href?.trim() || props.__designMode === 'design') {
-    // 解决低代码编辑器中按钮设置href属性造成按钮点击重定向问题
-    innerProps.href = undefined;
+  let _href = href;
+
+  if (props.__designMode) {
+    _href = undefined;
   }
 
-  const { children = '默认链接',style = {color:'#1677ff'}, ...otherProps } = props;
-  
+  let LinkRender: keyof JSX.IntrinsicElements = 'a';
+  if (link && !! _href) {
+    LinkRender = link;
+  }
+
   return (
-    <a style={style} {...otherProps} {...innerProps}>
+    <LinkRender href={_href} style={style} {...otherProps}>
       {children}
-    </a>
+    </LinkRender>
   );
 };
 Link.displayName = 'Link';

@@ -1,15 +1,15 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
 const ContainerMeta: ComponentMetadata = {
-  componentName: "Container",
-  title: "容器",
+  componentName: 'Container',
+  title: '容器',
   docUrl: '',
   screenshot: '',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: "Container",
+    exportName: 'Container',
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
@@ -23,7 +23,7 @@ const ContainerMeta: ComponentMetadata = {
           componentName: 'SelectSetter',
           initialValue: 'container',
           props: {
-            mode:'single',
+            mode: 'single',
             options: [
               {
                 title: '默认',
@@ -49,9 +49,9 @@ const ContainerMeta: ComponentMetadata = {
                 title: '全屏',
                 value: 'container-fluid',
               },
-            ]
+            ],
           },
-        }
+        },
       },
       {
         name: 'absolute',
@@ -65,7 +65,12 @@ const ContainerMeta: ComponentMetadata = {
     ],
     supports: {
       style: true,
-      loop:true,
+      loop: true,
+      events: [
+        {
+          name: 'onClick',
+        }
+      ],
     },
     component: {
       isContainer: true,
@@ -81,9 +86,10 @@ const ContainerMeta: ComponentMetadata = {
 const snippets: Snippet[] = [
   {
     title: '容器',
-    screenshot: 'https://img.alicdn.com/imgextra/i2/O1CN01B1NMW926IFrFxjqQT_!!6000000007638-55-tps-56-56.svg',
+    screenshot:
+      'https://img.alicdn.com/imgextra/i2/O1CN01B1NMW926IFrFxjqQT_!!6000000007638-55-tps-56-56.svg',
     schema: {
-      componentName: "Container",
+      componentName: 'Container',
       props: {},
       children: [],
     },

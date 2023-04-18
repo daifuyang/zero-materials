@@ -1,7 +1,7 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 
 const SwiperMeta: ComponentMetadata = {
-  componentName: "Swiper",
+  componentName: 'Swiper',
   title: '轮播图',
   docUrl: '',
   screenshot:
@@ -10,13 +10,41 @@ const SwiperMeta: ComponentMetadata = {
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: "Swiper",
+    exportName: 'Swiper',
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
   },
   configure: {
     props: [
+      {
+        name: 'items',
+        title: {
+          label: '轮播项',
+          tip: '每一页的轮播图',
+        },
+        setter: {
+          componentName: 'ArraySetter',
+          props: {
+            itemSetter: {
+              componentName: 'ObjectSetter',
+              props: {
+                config: {
+                  items: [
+                    {
+                      title: '远程URL',
+                      name: 'src',
+                      description: '轮播项URL地址',
+                      setter: 'StringSetter',
+                      isRequired: true
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        },
+      },
       {
         name: 'autoplay',
         title: {
@@ -36,7 +64,7 @@ const SwiperMeta: ComponentMetadata = {
           componentName: 'SelectSetter',
           initialValue: 'slide',
           props: {
-            mode:'single',
+            mode: 'single',
             options: [
               {
                 title: '普通',
@@ -65,10 +93,10 @@ const SwiperMeta: ComponentMetadata = {
               {
                 title: 'creative',
                 value: '创意性',
-              }
-            ]
+              },
+            ],
           },
-        }
+        },
       },
       {
         name: 'delay',
@@ -112,7 +140,7 @@ const SwiperMeta: ComponentMetadata = {
               { title: '垂直', value: 'vertical' },
             ],
           },
-        }
+        },
       },
     ],
     supports: {
@@ -133,7 +161,7 @@ const snippets: Snippet[] = [
     screenshot:
       'https://alifd.oss-cn-hangzhou.aliyuncs.com/fusion-cool/icons/icon-light/ic_light_slider.png',
     schema: {
-      componentName: "Swiper",
+      componentName: 'Swiper',
       props: {},
       children: [],
     },

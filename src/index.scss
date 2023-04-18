@@ -1,9 +1,12 @@
+// Import Swiper styles
 @import '~swiper/swiper.min.css';
 
 @import './variables.scss';
 
 @import './components/swiper/index.css';
 
-@import "./components/Container/index.scss";
+@import "./components/container/index.scss";
 
-// Import Swiper styles
+@import "./components/menu/menu.scss";
+
+@import "./components/pagination/pagination.scss";
