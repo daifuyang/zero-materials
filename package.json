@@ -64,6 +64,8 @@
   "dependencies": {
     "@alilc/build-plugin-alt": "^1.3.2",
     "@ant-design/icons": "^5.0.1",
+    "aos": "^2.3.4",
+    "parallax-js": "^3.1.0",
     "prop-types": "^15.5.8",
     "react": "^16.x",
     "react-dom": "^16.x",

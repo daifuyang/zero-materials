@@ -1,7 +1,8 @@
-import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
+import { ComponentMetadata, Snippet, Project } from '@alilc/lowcode-types';
+import { aos } from '../_utils/aos';
 
 const Meta: ComponentMetadata = {
-  componentName: "Title",
+  componentName: 'Title',
   title: '标题内容',
   docUrl: '',
   screenshot:
@@ -10,7 +11,7 @@ const Meta: ComponentMetadata = {
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: "Title",
+    exportName: 'Title',
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
@@ -20,11 +21,11 @@ const Meta: ComponentMetadata = {
       {
         name: 'children',
         title: {
-          label: '重要程度',
-          tip: '相当于 h1、h2、h3、h4、h5',
+          label: '标题内容',
+          tip: '',
         },
         setter: 'StringSetter',
-        defaultValue: "标题",
+        defaultValue: '标题',
       },
       {
         name: 'level',
@@ -36,7 +37,7 @@ const Meta: ComponentMetadata = {
           componentName: 'SelectSetter',
           initialValue: 1,
           props: {
-            mode:'single',
+            mode: 'single',
             options: [
               {
                 title: 'h1',
@@ -58,17 +59,20 @@ const Meta: ComponentMetadata = {
                 title: 'h5',
                 value: 5,
               },
-            ]
+            ],
           },
-        }
+        },
       },
+      aos
     ],
     supports: {
       className: true,
       style: true,
       loop: false,
     },
-    component: {},
+    component: {
+      isContainer: true,
+    },
     advanced: {},
   },
   experimental: {
@@ -76,7 +80,7 @@ const Meta: ComponentMetadata = {
   },
   category: '基础',
   group: '组件',
-  priority: '9999'
+  priority: '9999',
 };
 const snippets: Snippet[] = [
   {
@@ -84,7 +88,7 @@ const snippets: Snippet[] = [
     screenshot:
       'https://img.alicdn.com/imgextra/i4/O1CN01E2PcPW1bKJV5QUVMg_!!6000000003446-55-tps-50-50.svg',
     schema: {
-      componentName: "Title",
+      componentName: 'Title',
       props: {},
       children: [],
     },

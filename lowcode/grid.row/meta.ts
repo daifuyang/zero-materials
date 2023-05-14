@@ -36,8 +36,7 @@ const Meta: ComponentMetadata = {
 const snippets: Snippet[] = [
   {
     title: '栅格一行',
-    screenshot:
-      'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-1.png',
     schema: {
       componentName: 'Row',
       props: {},
@@ -45,13 +44,17 @@ const snippets: Snippet[] = [
         {
           componentName: 'Col',
           props: {
-            span: 6,
+            lg: 6,
+            md: 6,
+            xs: 6,
           },
         },
         {
           componentName: 'Col',
           props: {
-            span: 6,
+            lg: 6,
+            md: 6,
+            xs: 6,
           },
         },
       ],

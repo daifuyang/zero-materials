@@ -5,6 +5,14 @@ export default [
     group: '组件',
     componentName: 'Page',
     title: '页面',
+    npm: {
+      package: 'zero-materials',
+      version: '0.1.0',
+      exportName: 'Page',
+      main: 'src/index.tsx',
+      destructuring: true,
+      subName: '',
+    },
     props: [
       {
         type: 'group',
@@ -71,6 +79,35 @@ export default [
             },
           },
         ],
+      },
+      {
+        name: 'scripts',
+        title: {
+          label: '额外脚本',
+        },
+        setter: {
+          componentName: 'ArraySetter',
+          props: {
+            itemSetter: {
+              componentName: 'ObjectSetter',
+              props: {
+                config: {
+                  items: [
+                    {
+                      name: 'script',
+                      description: '脚本',
+                      setter: 'StringSetter',
+                      isRequired: true,
+                    },
+                  ],
+                },
+              },
+              initialValue: {
+                script:""
+              },
+            },
+          },
+        },
       },
     ],
     configure: {

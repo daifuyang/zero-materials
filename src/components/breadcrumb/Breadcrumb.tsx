@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, Ref } from 'react';
 
 import cx from 'classnames';
 
@@ -8,14 +8,17 @@ interface BreadcrumbProps {
    */
   items?: any;
   link?: keyof JSX.IntrinsicElements;
+  style?: React.CSSProperties;
+  className?: string;
+  forwardRef: Ref<any>;
 }
 
 const renderItems = (props: any) => {
-  const { items = [], link, __designMode, ...otherProps } = props;
+  const { items = [], link, __designMode, forwardRef, style, className } = props;
   let Link: keyof JSX.IntrinsicElements = 'a';
   if (items?.length === 0 && __designMode) {
     return (
-      <nav {...otherProps} aria-label="breadcrumb">
+      <nav style={style} className={className} ref={forwardRef} aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
             <Link href="#">Home</Link>
@@ -31,7 +34,7 @@ const renderItems = (props: any) => {
     );
   }
   return (
-    <nav {...otherProps} aria-label="breadcrumb">
+    <nav ref={forwardRef} aria-label="breadcrumb">
       <ol className="breadcrumb">
         {items.map((item: any = {}, i: number) => {
           const _href = item.href;

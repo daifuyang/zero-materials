@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { createElement, cloneElement } from 'react';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import cx from 'classnames';
 
@@ -12,6 +11,7 @@ export interface IPaginationProps {
   total: number;
   href?: string;
   __designMode?: string;
+  forwardRef?: React.Ref<any>;
 }
 
 const Pagination: React.FC<IPaginationProps> = (props) => {
@@ -19,11 +19,12 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
     current = 1,
     pageSize = 10,
     total = 0,
+    style,
     className,
     href,
     __designMode,
     link,
-    ...otherProps
+    forwardRef,
   } = props;
 
   const pageBufferSize = 2;
@@ -52,6 +53,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
 
     return (
       <li
+        style={style}
         className={cx({
           'page-item': true,
           disabled,
@@ -258,14 +260,14 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
       }
 
       if (current - 1 >= pageBufferSize * 2 && current !== 1 + 2) {
-        pagerList[0] = cloneElement(pagerList[0], {
+        pagerList[0] = React.cloneElement(pagerList[0], {
           className: `page-item page-item-after-jump-prev`,
         });
         pagerList.unshift(jumpPrev);
       }
 
       if (allPages - current >= pageBufferSize * 2 && current !== allPages - 2) {
-        pagerList[pagerList.length - 1] = cloneElement(pagerList[pagerList.length - 1], {
+        pagerList[pagerList.length - 1] = React.cloneElement(pagerList[pagerList.length - 1], {
           className: `page-item page-item-before-jump-next`,
         });
         pagerList.push(jumpNext);
@@ -283,12 +285,12 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
 
   return (
     <nav
+      ref={forwardRef}
       className={cx({
         'zero-ui-pagination': true,
         [className]: !!className,
       })}
       aria-label="list results pages"
-      {...otherProps}
     >
       <ul className="pagination">
         {renderPrev()}

@@ -18,6 +18,7 @@ import { NavigationOptions, PaginationOptions } from 'swiper/types';
 
 interface SwiperProps {
   style: CSSProperties;
+  className?: string;
   navigation?: NavigationOptions | boolean;
   pagination?: PaginationOptions | boolean;
   direction?: 'horizontal' | 'vertical';
@@ -26,6 +27,7 @@ interface SwiperProps {
   items: any;
   effect?: 'slide' | 'fade' | 'cube' | 'coverflow' | 'flip' | 'creative' | 'cards';
   __designMode?: string;
+  forwardRef?: React.Ref<any>;
 }
 
 const Swiper = (props: SwiperProps) => {
@@ -33,6 +35,7 @@ const Swiper = (props: SwiperProps) => {
     style = {
       height: 300,
     },
+    className,
     items = [],
     navigation,
     pagination,
@@ -41,6 +44,7 @@ const Swiper = (props: SwiperProps) => {
     delay,
     effect,
     __designMode,
+    forwardRef
   } = props;
 
   const auto = autoplay
@@ -55,6 +59,8 @@ const Swiper = (props: SwiperProps) => {
       {items?.length === 0 && <div style={{...style,display:'flex',alignItems:'center',justifyContent:'center',border:'1px solid #999'}}>请选择一个轮播图</div>}
       {items?.length > 0 && (
         <SwiperReact
+          ref={forwardRef}
+          className={className}
           allowTouchMove={__designMode !== 'design'}
           observer
           observeParents
@@ -79,8 +85,8 @@ const Swiper = (props: SwiperProps) => {
         >
           {items.map((item: any = {}, key: number) => {
             return (
-              <SwiperSlide>
-                <img key={key} src={item.src || 'https://swiperjs.com/demos/images/nature-1.jpg'} />
+              <SwiperSlide key={key}>
+                <img src={item.src || 'https://swiperjs.com/demos/images/nature-1.jpg'} />
               </SwiperSlide>
             )
           })}

@@ -1,4 +1,5 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
+import { aos } from '../_utils/aos';
 
 const Meta: ComponentMetadata = {
   componentName: "Icon",
@@ -21,12 +22,12 @@ const Meta: ComponentMetadata = {
         title: '图标',
         setter: 'StringSetter',
         defaultValue: "",
-       
       },
-
+      aos
     ],
     supports: {
       style: true,
+      className: true,
       loop: false,
     },
     component: {},

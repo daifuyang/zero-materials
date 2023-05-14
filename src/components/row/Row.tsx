@@ -11,6 +11,7 @@ interface RowProps {
    * 孩子节点
    */
   children?: React.ReactNode;
+  forwardRef?: React.Ref<any>;
 }
 
 const Row: FC<RowProps> = (props) => {
@@ -18,15 +19,15 @@ const Row: FC<RowProps> = (props) => {
     style,
     children,
     className,
-    ...otherProps
+    forwardRef,
   } = props;
   return (
-    <div className={
+    <div ref={forwardRef} className={
       cx(
         `row`,
         { [className]: !!className }
       )
-    } style={style} {...otherProps}>
+    } style={style} >
       {children}
     </div>
   );

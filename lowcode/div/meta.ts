@@ -1,4 +1,5 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
+import { aos } from '../_utils/aos';
 
 const Meta: ComponentMetadata = {
   componentName: 'Div',
@@ -15,7 +16,9 @@ const Meta: ComponentMetadata = {
     subName: '',
   },
   configure: {
-    props: [],
+    props: [
+      aos
+    ],
     component: {
       isContainer: true,
     },

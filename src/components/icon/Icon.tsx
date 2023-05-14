@@ -1,6 +1,7 @@
-import React, { CSSProperties, FC } from 'react';
+import React, { CSSProperties, FC, Ref } from 'react';
 
 import cx from 'classnames';
+import { useAos } from '@/utils/utils';
 
 interface IconProps {
   className?: string;
@@ -12,24 +13,28 @@ interface IconProps {
    * 孩子节点
    */
   icon: string;
+  forwardRef?: Ref<any>;
+  aos?: any;
 }
 
 const Icon: FC<IconProps> = (props) => {
-  const { icon, className, style = {}, ...otherProps } = props;
+  const { icon, className, style = {}, forwardRef } = props;
   const _style = style;
   if (_style?.color) {
     _style.fill = _style.color;
   }
+  const [dataAos] = useAos(props);
   return (
     <svg
+      {...dataAos}
+      ref={forwardRef}
       style={_style}
       className={cx('icon', { [className]: !!className })}
-      {...otherProps}
       aria-hidden="true"
     >
       <use xlinkHref={`#${icon}`} />
     </svg>
   );
 };
-Icon.displayName = 'Icon'
+Icon.displayName = 'Icon';
 export { Icon };

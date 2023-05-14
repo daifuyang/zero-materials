@@ -17,13 +17,29 @@ const Meta: ComponentMetadata = {
   configure: {
     props: [
       {
-        name: 'span',
+        name: 'lg',
         title: {
-          label: '占位格数',
+          label: '电脑占位格数',
         },
         setter: 'StringSetter',
-        defaultValue: '6',
+        defaultValue: '',
       },
+      {
+        name: 'md',
+        title: {
+          label: '平板占位格数',
+        },
+        setter: 'StringSetter',
+        defaultValue: '',
+      },
+      {
+        name: 'xs',
+        title: {
+          label: '手机占位格数',
+        },
+        setter: 'StringSetter',
+        defaultValue: '',
+      }
     ],
     component: { isContainer: true, nestingRule: { parentWhitelist: ['Row'] } },
     supports: { style: true },

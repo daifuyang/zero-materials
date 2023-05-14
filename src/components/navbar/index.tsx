@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, Ref } from 'react';
 
 import cx from 'classnames';
 
@@ -17,15 +17,32 @@ interface NavbarProps {
    */
   style?: CSSProperties;
   className?: string;
+  container?: string;
+  forwardRef?: Ref<any>;
 }
 
 const Navbar: React.FC<NavbarProps> = function (props) {
-  const { style, logo, menu, extra, className } = props;
-
+  const { style, logo, menu, extra, className, container, forwardRef } = props;
   return (
-    <nav style={style} className={cx('navbar navbar-expand-lg', { [className]: !!className })}>
-      <div className="container-fluid">
+    <nav
+      ref={forwardRef}
+      style={style}
+      className={cx('zero-ui-navbar navbar navbar-expand-lg', { [className]: !!className })}
+      
+    >
+      <div className={container}>
         <div className="logo">{logo}</div>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           {menu}
           {extra}

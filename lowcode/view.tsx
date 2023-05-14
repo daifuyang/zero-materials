@@ -1,17 +1,17 @@
-import React, { createElement, useRef, useState } from 'react';
+import React, { Ref, createElement, useRef, useState } from 'react';
 
 import hoistNonReactStatic from 'hoist-non-react-statics';
 
 import type { IPublicModelNode } from '@alilc/lowcode-types';
 
-import { Container } from '../src';
+import { Container, Slot } from '../src';
 
 function debounce(fn: Function, wait = 50) {
   // 通过闭包缓存一个定时器 id
   let timer: any = null;
   // 将 debounce 处理结果当作函数返回
   // 触发事件回调时执行这个返回函数
-  return  (...args: any) => {
+  return (...args: any) => {
     // 如果已经设定过定时器就清空上一次的定时器
     if (timer) clearTimeout(timer);
 
@@ -23,11 +23,11 @@ function debounce(fn: Function, wait = 50) {
 }
 
 const AbslouteContainerView = (props: { _leaf?: IPublicModelNode; [key: string]: any }) => {
-  const ref = useRef<any>();
+  const ref:Ref<any> = useRef<any>(null);
   const { _leaf, ...others } = props;
   let move = false;
 
-  const [isDraging, setDraging] = useState(false);
+  const [isDragging, setDragging] = useState(false);
 
   const onDragstart = {
     canvasX: 0,
@@ -40,7 +40,7 @@ const AbslouteContainerView = (props: { _leaf?: IPublicModelNode; [key: string]:
 
   let oldStyle: any = {};
 
-  let selectedNode:any = null;
+  let selectedNode: any = null;
 
   if (ref.current && props.absolute) {
     const onStart = function (e) {
@@ -53,7 +53,7 @@ const AbslouteContainerView = (props: { _leaf?: IPublicModelNode; [key: string]:
       if (selectedNode && !selectedNode.isContainerNode) {
         oldStyle = selectedNode?.getPropValue('style') || {};
         move = true;
-        setDraging(true);
+        setDragging(true);
       }
     };
 
@@ -141,16 +141,27 @@ const AbslouteContainerView = (props: { _leaf?: IPublicModelNode; [key: string]:
       selectedNode = null;
       move = false;
       oldStyle = {};
-      setDraging(false);
+      setDragging(false);
     };
 
     ref.current?.addEventListener('pointerdown', debounce(onStart, 10));
     ref.current?.addEventListener('pointerup', debounce(onEnd, 10));
   }
 
-  return <Container isDraging={isDraging} containerRef={ref} {...others} />;
+  return <Container isDragging={isDragging} containerRef={ref} {...others} />;
 };
 
 hoistNonReactStatic(AbslouteContainerView, Container);
 
-export { AbslouteContainerView as Container };
+// 文章列表
+const ArticleListView = (props: { _leaf?: IPublicModelNode; [key: string]: any }) => {
+  const { children, _componentName, _leaf } = props;
+  if (_componentName !== 'Slot') {
+ 
+  }
+  return children;
+};
+
+hoistNonReactStatic(ArticleListView, Slot);
+
+export { AbslouteContainerView as Container, ArticleListView as Slot };

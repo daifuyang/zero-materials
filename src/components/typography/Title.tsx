@@ -1,13 +1,22 @@
-import React from 'react';
+import { useAos } from '@/utils/utils';
+import React, { Ref } from 'react';
 
 const TITLE_ELE_LIST = [1, 2, 3, 4, 5] as const;
 
 interface TitleProps {
   level?: typeof TITLE_ELE_LIST[number];
+  forwardRef: Ref<any>;
+  style: React.CSSProperties;
+  className?: string;
+  children?: React.ReactNode;
+  __designMode?: string;
+  aos?: any;
 }
 
 const Title: React.FC<TitleProps> = (props) => {
-  const { level = 1, ...restProps } = props;
+  const { level = 1, forwardRef, style, className, children } = props;
+  const [dataAos] = useAos(props);
+
   let Component: keyof JSX.IntrinsicElements;
 
   if (TITLE_ELE_LIST.includes(level)) {
@@ -16,7 +25,11 @@ const Title: React.FC<TitleProps> = (props) => {
     Component = 'h1';
   }
 
-  return <Component {...restProps} />;
+  return (
+    <Component {...dataAos} ref={forwardRef} style={style} className={className}>
+      {children}
+    </Component>
+  );
 };
 Title.displayName = 'Title';
 export default Title;

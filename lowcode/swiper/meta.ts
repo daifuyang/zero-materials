@@ -41,8 +41,11 @@ const SwiperMeta: ComponentMetadata = {
                   ],
                 },
               },
+              initialValue:{
+                
+              }
             },
-          },
+          }
         },
       },
       {

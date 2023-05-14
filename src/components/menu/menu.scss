@@ -1,17 +1,20 @@
-$zero-ui-prefix: '.zero-ui-navbar';
+$zero-ui-prefix: '.zero-ui-menu';
 
 #{$zero-ui-prefix} {
   .nav-item {
+    position: relative;
     .nav-link {
+      font-size: var(--fontSize, 16px);
       position: relative;
+      display: inline-block;
+      margin: 20px 30px;
       color: var(--nav-color);
-      padding: 0;
-      padding-bottom: 3px;
       &::after {
         content: ' ';
         display: block;
         position: absolute;
-        bottom: 0;
+        left: 0;
+        bottom: -3px;
         width: 0;
         height: 2px;
         background-color: transparent;

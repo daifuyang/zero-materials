@@ -2,19 +2,31 @@ import React, { FC } from 'react';
 import cx from 'classnames';
 
 interface ColProps {
+  style?: React.CSSProperties;
   className?: string;
-  span?: Number;
+  lg?: Number;
+  md?: Number;
+  xs?: Number;
   /**
    * 孩子节点
    */
   children?: React.ReactNode;
+  forwardRef?: React.Ref<any>;
 }
 
 const Col: FC<ColProps> = (props) => {
-  const {  children, span, className, ...otherProps } = props;
-
+  const { children, lg, md, xs, style, className, forwardRef } = props;
   return (
-    <div className={cx(`col-${span}`, { [className]: !!className })} {...otherProps}>
+    <div
+      ref={forwardRef}
+      style={style}
+      className={cx({
+        [`col-${xs}`]: xs,
+        [`col-md-${md}`]: md,
+        [`col-xl-${lg}`]: lg,
+        [className]: !!className,
+      })}
+    >
       {children}
     </div>
   );

@@ -1,6 +1,6 @@
-import React, { CSSProperties, FC } from 'react';
-
+import React, { CSSProperties, FC, Ref } from 'react';
 import cx from 'classnames';
+import {MENU} from '../../../lowcode/names';
 
 interface MenuProps {
   items: any;
@@ -16,6 +16,7 @@ interface MenuProps {
   fontSize?: number;
   style?: CSSProperties;
   __designMode?: string;
+  forwardRef?: Ref<any>;
 }
 
 const Menu: FC<MenuProps> = (props) => {
@@ -23,22 +24,23 @@ const Menu: FC<MenuProps> = (props) => {
     link,
     color = '#000000',
     hoverColor = '#1677ff',
-    bgColor = undefined,
-    hoverBgColor = undefined,
+    bgColor,
+    hoverBgColor,
     fontSize = 20,
     style = {},
-    className = undefined,
+    className,
     items = [],
     __designMode,
+    forwardRef,
   } = props;
 
   const _style = {
     ...style,
-    '--nav-color': color,
-    '--nav-hover-color': hoverColor,
-    '--nav-bg-color': bgColor,
-    '--nav-hover-bg-color': hoverBgColor,
-    '--fontSize': fontSize,
+    '--nav-color': color || undefined,
+    '--nav-hover-color': hoverColor || undefined,
+    '--nav-bg-color': bgColor || undefined,
+    '--nav-hover-bg-color': hoverBgColor || undefined,
+    '--fontSize': `${fontSize}px`,
   };
 
   let Link: keyof JSX.IntrinsicElements = 'a';
@@ -122,10 +124,10 @@ const Menu: FC<MenuProps> = (props) => {
   }
 
   return (
-    <ul style={_style} className={cx('zero-ui-navbar navbar-nav', { [className]: !!className })}>
+    <ul ref={forwardRef} style={_style} className={cx('zero-ui-menu navbar-nav', { [className]: !!className })}>
       {render}
     </ul>
   );
 };
-Menu.displayName = 'Menu';
+Menu.displayName = MENU;
 export { Menu };

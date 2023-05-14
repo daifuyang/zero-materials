@@ -1,7 +1,8 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
+import { MENU } from '../names';
 
 const Meta: ComponentMetadata = {
-  componentName: 'Menu',
+  componentName: MENU,
   title: '导航菜单',
   docUrl: '',
   screenshot: '',
@@ -28,7 +29,7 @@ const Meta: ComponentMetadata = {
           tip: '菜单字体大小，单位px',
         },
         setter: 'NumberSetter',
-        defaultValue: '20',
+        defaultValue: '16',
       },
       {
         name: 'color',
@@ -77,7 +78,7 @@ const snippets: Snippet[] = [
     title: '导航菜单',
     screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/menu-1.jpg',
     schema: {
-      componentName: 'Menu',
+      componentName: MENU,
       props: {},
       children: [],
     },

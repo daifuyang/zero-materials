@@ -1,4 +1,5 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
+import { aos } from '../_utils/aos';
 
 const Meta: ComponentMetadata = {
   componentName: "Link",
@@ -65,15 +66,14 @@ const Meta: ComponentMetadata = {
           },
         }
       },
+      aos
     ],
     supports: {
       className: true,
       style: true,
       loop: true,
     },
-    component: {
-      isContainer: true,
-    },
+    component: {},
     advanced: {},
   },
   experimental: {

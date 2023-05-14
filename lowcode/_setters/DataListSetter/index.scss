@@ -1,0 +1,55 @@
+.datalist-setter-dialog-root {
+  display: flex;
+  min-height: 500px;
+  .datalist-setter-dialog-sidebar {
+    width: 110px;
+    border-right: 1px solid rgba(31, 56, 88, 0.1);
+  }
+  .datalist-setter-dialog-list-content {
+    flex: 1;
+    padding: 16px;
+
+    .datalist-setter-dialog-list-content-header {
+      display: flex;
+      margin-bottom: 15px;
+      .datalist-setter-dialog-list-content-header-icon-wrap {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        .datalist-setter-dialog-list-content-header-icon {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .datalist-setter-dialog-list-content-title {
+        position: relative;
+        display: inline-block;
+        &::before {
+            content: " ";
+            display: inline-block;
+            vertical-align: baseline;
+            width: 3px;
+            height: 10px;
+            background-color: #5584FF;
+            margin-right: 4px;
+        }
+    }
+
+    .datalist-setter-dialog-list-content-configure {
+       
+        .datalist-setter-dialog-list-content-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px,
+        }
+    }
+
+    .datalist-setter-dialog-list-content-pagination {
+      text-align: right;
+      margin-top: 10px;
+    }
+  }
+}

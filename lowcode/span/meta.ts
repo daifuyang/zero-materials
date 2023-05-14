@@ -2,16 +2,15 @@ import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 import { aos } from '../_utils/aos';
 
 const Meta: ComponentMetadata = {
-  componentName: "Image",
-  title: '图片',
+  componentName: 'Span',
+  title: '行内标签',
   docUrl: '',
-  screenshot:
-    'https://img.alicdn.com/imgextra/i3/O1CN01tnhXhk1GUIFhsXwzA_!!6000000000625-55-tps-56-56.svg',
+  screenshot: '',
   devMode: 'proCode',
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: "Image",
+    exportName: 'Span',
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
@@ -19,28 +18,34 @@ const Meta: ComponentMetadata = {
   configure: {
     props: [
       {
-        name: 'src',
+        name: 'children',
         title: {
-          label: '图片链接',
+          label: '内容',
+          tip: '',
         },
         setter: 'StringSetter',
-        defaultValue: "https://img.alicdn.com/tps/TB16TQvOXXXXXbiaFXXXXXXXXXX-120-120.svg",
+        defaultValue: 'span标签',
       },
       {
-        name: 'alt',
-        title: '替代文本',
+        name: 'depth',
+        title: {
+          label: 'depth',
+          tip: '',
+        },
         setter: 'StringSetter',
-        defaultValue: "alt",
-       
+        defaultValue: '',
       },
       aos
     ],
-    supports: {
-      style: true,
-      className: true,
-      loop: false,
+    component: {
+      isContainer: false,
     },
-    component: {},
+    supports: {
+      className: true,
+      style: true,
+      events: [],
+      loop: true,
+    },
     advanced: {},
   },
   experimental: {
@@ -51,11 +56,10 @@ const Meta: ComponentMetadata = {
 };
 const snippets: Snippet[] = [
   {
-    title: '图片',
-    screenshot:
-      'https://img.alicdn.com/imgextra/i3/O1CN01tnhXhk1GUIFhsXwzA_!!6000000000625-55-tps-56-56.svg',
+    title: '行内元素',
+    screenshot: '',
     schema: {
-      componentName: "Image",
+      componentName: 'Span',
       props: {},
       children: [],
     },

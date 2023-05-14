@@ -4,23 +4,26 @@ import cx from 'classnames';
 
 interface DivProps {
   type: string; // 公共区块类型
+  style?: React.CSSProperties;
   className?: string;
   /**
    * 孩子节点
    */
   children?: ReactNode;
+  forwardRef?: React.Ref<any>;
 }
 
 const Section: FC<DivProps> = (props: any) => {
-  const { className, children, ...otherProps } = props;
+  const { style, className, children, forwardRef } = props;
 
   return (
     <section
+      ref={forwardRef}
+      style={style}
       className={cx({
         [`zero-ui-section`]: true,
         [className]: !!className,
       })}
-      {...otherProps}
     >
       {children}
     </section>
@@ -28,4 +31,4 @@ const Section: FC<DivProps> = (props: any) => {
 };
 
 Section.displayName = 'Section';
-export default Section
+export default Section;

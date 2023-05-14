@@ -1,4 +1,5 @@
 import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
+import { MENU } from '../names';
 
 const NavbarMeta: ComponentMetadata = {
   componentName: 'Navbar',
@@ -16,6 +17,27 @@ const NavbarMeta: ComponentMetadata = {
   },
   configure: {
     props: [
+      {
+        name: 'container',
+        title: '容器宽度',
+        setter: {
+          componentName: 'SelectSetter',
+          initialValue: 'container',
+          props: {
+            mode: 'single',
+            options: [
+              {
+                title: '默认',
+                value: 'container',
+              },
+              {
+                title: '全屏',
+                value: 'container-fluid',
+              },
+            ],
+          },
+        },
+      },
       {
         title: 'logo',
         name: 'logo',
@@ -61,9 +83,10 @@ const NavbarMeta: ComponentMetadata = {
             type: 'JSSlot',
             value: [
               {
-                componentName: 'Menu',
+                componentName: MENU,
                 props: {
-                 
+                  className: 'mr-auto',
+
                 },
                 hidden: false,
                 title: '',

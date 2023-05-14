@@ -1,9 +1,4 @@
-import React, {
-  FC,
-  CSSProperties,
-  ReactNode,
-  forwardRef,
-} from 'react';
+import React, { FC, CSSProperties, ReactNode, Ref } from 'react';
 
 import cx from 'classnames';
 
@@ -14,7 +9,8 @@ interface ContainerProps {
   style?: CSSProperties;
   className?: string;
   absolute?: boolean;
-  isDraging?: boolean;
+  isDragging?: boolean;
+  forwardRef?: Ref<any>;
   /**
    * 孩子节点
    */
@@ -22,8 +18,15 @@ interface ContainerProps {
 }
 
 const Container: FC<ContainerProps> = (props: any) => {
-  const { className, absolute, children, style = {}, containerRef , isDraging } = props;
-  const _style = {...style} || {};
+  const {
+    className,
+    absolute,
+    children,
+    style = {},
+    containerRef,
+    isDragging,
+  } = props;
+  const _style = { ...style } || {};
   if (absolute) {
     _style.position = 'relative';
     if (!_style.height) {
@@ -38,12 +41,13 @@ const Container: FC<ContainerProps> = (props: any) => {
         'zero-ui-container': true,
         [className]: !!className,
       })}
+      
     >
       <div
         style={{
           position: 'relative',
           height: _style.height,
-          border: isDraging ? '1px solid blue' : undefined,
+          border: isDragging ? '1px solid blue' : undefined,
         }}
       >
         {children}
