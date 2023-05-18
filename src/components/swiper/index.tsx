@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
 // import required modules
 import {
@@ -14,10 +14,11 @@ import {
 } from 'swiper';
 
 // Import Swiper styles
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { NavigationOptions, PaginationOptions } from 'swiper/types';
 
 interface SwiperProps {
-  style: CSSProperties;
+  style: React.CSSProperties;
   className?: string;
   navigation?: NavigationOptions | boolean;
   pagination?: PaginationOptions | boolean;
@@ -85,6 +86,7 @@ const Swiper = (props: SwiperProps) => {
         >
           {items.map((item: any = {}, key: number) => {
             return (
+              // eslint-disable-next-line react/no-array-index-key
               <SwiperSlide key={key}>
                 <img src={item.src || 'https://swiperjs.com/demos/images/nature-1.jpg'} />
               </SwiperSlide>

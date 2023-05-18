@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import cx from 'classnames';
 
 interface ColProps {
@@ -14,7 +14,7 @@ interface ColProps {
   forwardRef?: React.Ref<any>;
 }
 
-const Col: FC<ColProps> = (props) => {
+const Col: React.FC<ColProps> = (props) => {
   const { children, lg, md, xs, style, className, forwardRef } = props;
   return (
     <div

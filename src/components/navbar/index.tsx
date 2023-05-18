@@ -1,4 +1,4 @@
-import React, { CSSProperties, Ref } from 'react';
+import React from 'react';
 
 import cx from 'classnames';
 
@@ -15,10 +15,10 @@ interface NavbarProps {
   /**
    * 自定义样式
    */
-  style?: CSSProperties;
+  style?: React.CSSProperties;
   className?: string;
   container?: string;
-  forwardRef?: Ref<any>;
+  forwardRef?: React.Ref<any>;
 }
 
 const Navbar: React.FC<NavbarProps> = function (props) {

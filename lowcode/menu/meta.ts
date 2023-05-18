@@ -1,7 +1,6 @@
-import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
 import { MENU } from '../names';
 
-const Meta: ComponentMetadata = {
+const Meta = {
   componentName: MENU,
   title: '导航菜单',
   docUrl: '',
@@ -10,7 +9,7 @@ const Meta: ComponentMetadata = {
   npm: {
     package: 'zero-materials',
     version: '0.1.0',
-    exportName: 'Menu',
+    exportName: 'ZUiMenu',
     main: 'src/index.tsx',
     destructuring: true,
     subName: '',
@@ -73,7 +72,7 @@ const Meta: ComponentMetadata = {
   category: '导航',
   group: '组件',
 };
-const snippets: Snippet[] = [
+const snippets = [
   {
     title: '导航菜单',
     screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/menu-1.jpg',

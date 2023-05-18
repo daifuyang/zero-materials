@@ -19,18 +19,17 @@ export const getAos = (aos: any) => {
   return dataAos;
 };
 
-export const useAos = (props:any) => {
-    const { __designMode, aos } = props;
-    useEffect(() => {
-      if (__designMode) {
-        const AOS = require('aos');
-        AOS.refreshHard();
-      }
-    }, [aos]);
+export const useAos = (props: any) => {
+  const { __designMode, aos } = props;
+  useEffect(() => {
+    if (__designMode) {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const AOS = require('aos');
+      AOS.refreshHard();
+    }
+  }, [__designMode, aos]);
 
-    const dataAos = getAos(aos)
+  const dataAos = getAos(aos);
 
-    return [dataAos]
-
-  };
-  
+  return [dataAos];
+};

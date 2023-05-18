@@ -1,46 +1,69 @@
-import React, { FC, ReactNode, useEffect } from 'react';
+/* eslint-disable @typescript-eslint/no-require-imports */
+import { Component } from 'react';
 
 interface PageProps {
-  /**
-   * 孩子节点
-   */
-  children?: ReactNode;
+  scripts: any;
+  children: React.ReactNode
 }
 
-const Page: FC<PageProps> = (props: any) => {
-  const { children, scripts } = props;
+class Page extends Component<PageProps> {
+  static displayName = 'Page';
+  elements: any
+  constructor(props: PageProps) {
+    super(props);
+    this.elements = []
+  }
 
-  useEffect(() => {
+  componentDidMount() {
+
+  }
+
+  componentDidUpdate(): void {
     const AOS = require('aos');
     const Parallax = require('parallax-js');
     const elements: any = document.getElementsByClassName('scene');
     for (let index = 0; index < elements.length; index++) {
       const item = elements[index];
-      const res = new Parallax(item);
-      console.log('res',res)
+      // eslint-disable-next-line no-new
+     new Parallax(item);
     }
+    AOS.init()
 
-    AOS.init();
-  }, []);
-
-  useEffect(() => {
+    const { scripts } = this.props;
     const head = document.querySelector('head');
-    const elements: any = [];
-    scripts.forEach((item: any) => {
-      const script = document.createElement('script');
+    scripts?.forEach?.((item: any) => {
+      const script:any = document.createElement('script');
       script.setAttribute('src', item.script);
       head.appendChild(script);
-      elements.push(script);
+      this.elements.push(script);
     });
+  }
 
-    return () => {
-      elements.forEach((element: any) => {
-        head.removeChild(element);
-      });
-    };
-  }, [scripts]);
-  return <>{children}</>;
-};
+  componentWillUnmount(): void {
+    const head = document.querySelector('head');
+    this.elements.forEach((element: any) => {
+      head.removeChild(element);
+    });
+  }
 
-Page.displayName = 'Page';
+  render() {
+    return this.props.children;
+  }
+
+}
+
+// const Page: React.FC<PageProps> = (props: any) => {
+//   const { children, scripts } = props;
+
+//   useEffect(() => {
+
+//     return () => {
+//       elements.forEach((element: any) => {
+//         head.removeChild(element);
+//       });
+//     };
+//   }, [scripts]);
+//   return <>{children}</>;
+// };
+
 export default Page;

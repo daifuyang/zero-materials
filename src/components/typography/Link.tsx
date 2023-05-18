@@ -1,4 +1,4 @@
-import { useAos } from '@/utils/utils';
+import { useAos } from '../../utils/utils';
 import React from 'react';
 
 interface LinkProps {

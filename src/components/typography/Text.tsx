@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import { useAos } from '@/utils/utils';
+import { useAos } from '../../utils/utils';
 
 interface TextProps {
   className?: string;

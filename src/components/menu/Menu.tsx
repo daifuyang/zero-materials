@@ -1,6 +1,5 @@
-import React, { CSSProperties, FC, Ref } from 'react';
+import React from 'react';
 import cx from 'classnames';
-import {MENU} from '../../../lowcode/names';
 
 interface MenuProps {
   items: any;
@@ -9,17 +8,17 @@ interface MenuProps {
   /**
    * 自定义样式
    */
-  color?: CSSProperties;
-  hoverColor?: CSSProperties;
-  bgColor?: CSSProperties;
-  hoverBgColor?: CSSProperties;
+  color?: React.CSSProperties;
+  hoverColor?: React.CSSProperties;
+  bgColor?: React.CSSProperties;
+  hoverBgColor?: React.CSSProperties;
   fontSize?: number;
-  style?: CSSProperties;
+  style?: React.CSSProperties;
   __designMode?: string;
-  forwardRef?: Ref<any>;
+  forwardRef?: React.Ref<any>;
 }
 
-const Menu: FC<MenuProps> = (props) => {
+const ZUiMenu: React.FC<MenuProps> = (props) => {
   const {
     link,
     color = '#000000',
@@ -129,5 +128,5 @@ const Menu: FC<MenuProps> = (props) => {
     </ul>
   );
 };
-Menu.displayName = MENU;
-export { Menu };
+ZUiMenu.displayName = "ZUiMenu";
+export { ZUiMenu };

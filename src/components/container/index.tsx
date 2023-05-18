@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties, ReactNode, Ref } from 'react';
+import React from 'react';
 
 import cx from 'classnames';
 
@@ -6,18 +6,18 @@ interface ContainerProps {
   /**
    * 自定义样式
    */
-  style?: CSSProperties;
+  style?: React.CSSProperties;
   className?: string;
   absolute?: boolean;
   isDragging?: boolean;
-  forwardRef?: Ref<any>;
+  forwardRef?: React.Ref<any>;
   /**
    * 孩子节点
    */
-  children?: ReactNode;
+  children?: React.ReactNode;
 }
 
-const Container: FC<ContainerProps> = (props: any) => {
+const Container: React.FC<ContainerProps> = (props: any) => {
   const {
     className,
     absolute,

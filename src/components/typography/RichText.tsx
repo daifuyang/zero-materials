@@ -16,6 +16,7 @@ const RichText: React.FC<RichTextProps> = (props: any) => {
       ref={forwardRef}
       className={className}
       style={style}
+      // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: html || defaultHtml }}
     />
   );

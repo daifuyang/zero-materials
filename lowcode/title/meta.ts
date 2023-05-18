@@ -1,7 +1,6 @@
-import { ComponentMetadata, Snippet, Project } from '@alilc/lowcode-types';
 import { aos } from '../_utils/aos';
 
-const Meta: ComponentMetadata = {
+const Meta = {
   componentName: 'Title',
   title: '标题内容',
   docUrl: '',
@@ -82,7 +81,7 @@ const Meta: ComponentMetadata = {
   group: '组件',
   priority: '9999',
 };
-const snippets: Snippet[] = [
+const snippets = [
   {
     title: '标题',
     screenshot:

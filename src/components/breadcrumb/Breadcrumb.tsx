@@ -1,5 +1,4 @@
-import React, { FC, Ref } from 'react';
-
+import * as React from 'react';
 import cx from 'classnames';
 
 interface BreadcrumbProps {
@@ -10,7 +9,7 @@ interface BreadcrumbProps {
   link?: keyof JSX.IntrinsicElements;
   style?: React.CSSProperties;
   className?: string;
-  forwardRef: Ref<any>;
+  forwardRef: React.Ref<any>;
 }
 
 const renderItems = (props: any) => {
@@ -59,7 +58,7 @@ const renderItems = (props: any) => {
   );
 };
 
-const Breadcrumb: FC<BreadcrumbProps> = (props) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
   return renderItems(props);
 };
 

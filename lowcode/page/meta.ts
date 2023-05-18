@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IPublicModelSettingPropEntry } from '@alilc/lowcode-types';
 
 export default [

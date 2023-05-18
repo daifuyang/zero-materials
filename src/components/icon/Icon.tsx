@@ -1,23 +1,23 @@
-import React, { CSSProperties, FC, Ref } from 'react';
+import React from 'react';
 
 import cx from 'classnames';
-import { useAos } from '@/utils/utils';
+import { useAos } from '../../utils/utils';
 
 interface IconProps {
   className?: string;
   /**
    * 自定义样式
    */
-  style?: CSSProperties;
+  style?: React.CSSProperties;
   /**
    * 孩子节点
    */
   icon: string;
-  forwardRef?: Ref<any>;
+  forwardRef?: React.Ref<any>;
   aos?: any;
 }
 
-const Icon: FC<IconProps> = (props) => {
+const Icon: React.FC<IconProps> = (props) => {
   const { icon, className, style = {}, forwardRef } = props;
   const _style = style;
   if (_style?.color) {

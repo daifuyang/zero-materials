@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties, Ref } from 'react';
+import * as React from 'react';
 
 interface ImageProps {
   alt?: string;
@@ -7,11 +7,11 @@ interface ImageProps {
    * 自定义样式
    */
   className?: string;
-  style?: CSSProperties;
-  forwardRef?: Ref<any>;
+  style?: React.CSSProperties;
+  forwardRef?: React.Ref<any>;
 }
 
-const Image: FC<ImageProps> = (props) => {
+const Image: React.FC<ImageProps> = (props) => {
   const { src, alt, style = { width: 150, height: 150 },className,forwardRef } = props;
   let _src = src;
   if (!_src) {

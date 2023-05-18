@@ -32,7 +32,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
   const allPages = Math.floor((total - 1) / pageSize) + 1;
   const prevPage: any = current - 1 > 0 ? current - 1 : 0;
   const nextPage: any = current + 1 < allPages ? current + 1 : allPages;
-  const pageSufix = 'page-';
+  const pageSuffix = 'page-';
 
   // 存在上一页
   const hasPrev = () => current > 1;
@@ -41,7 +41,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
     const disabled = !hasPrev();
     let _href: any;
     if (!disabled) {
-      _href = `${href}/${pageSufix}${prevPage}`;
+      _href = `${href}/${pageSuffix}${prevPage}`;
     }
     if (__designMode) {
       _href = undefined;
@@ -73,7 +73,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
     let Link: keyof JSX.IntrinsicElements = 'a';
     let _href: any;
     if (!disabled) {
-      _href = `${href}/${pageSufix}${nextPage}`;
+      _href = `${href}/${pageSuffix}${nextPage}`;
     }
 
     if (__designMode) {
@@ -103,7 +103,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
     if (allPages <= 3 + pageBufferSize * 2) {
       if (!allPages) {
         let Link: keyof JSX.IntrinsicElements = 'a';
-        let _href: any = `${href}/${pageSufix}1`;
+        let _href: any = `${href}/${pageSuffix}1`;
         if (__designMode) {
           _href = undefined;
         }
@@ -112,21 +112,21 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
           Link = link;
         }
 
-        const frstPager = (
+        const firstPager = (
           <li key="noPager" className="page-item">
             <Link className="page-link" href={_href}>
               1
             </Link>
           </li>
         );
-        if (frstPager) {
-          pagerList.push(frstPager);
+        if (firstPager) {
+          pagerList.push(firstPager);
         }
       }
       for (let i = 1; i <= allPages; i += 1) {
         let Link: keyof JSX.IntrinsicElements = 'a';
         const active = current === i;
-        let _href: any = `${href}/${pageSufix}${i}`;
+        let _href: any = `${href}/${pageSuffix}${i}`;
         if (__designMode) {
           _href = undefined;
         }
@@ -174,7 +174,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
 
       let Link: keyof JSX.IntrinsicElements = 'a';
 
-      let _href: any = `${href}/${pageSufix}${allPages}`;
+      let _href: any = `${href}/${pageSuffix}${allPages}`;
       if (__designMode) {
         _href = undefined;
       }
@@ -196,7 +196,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
         </li>
       );
 
-      _href = `${href}/${pageSufix}1`;
+      _href = `${href}/${pageSuffix}1`;
       if (__designMode) {
         _href = undefined;
       }
@@ -231,7 +231,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
 
       for (let i = left; i <= right; i += 1) {
         const active = current === i;
-        _href = `${href}/${pageSufix}${i}`;
+        _href = `${href}/${pageSuffix}${i}`;
         if (__designMode) {
           _href = undefined;
         }

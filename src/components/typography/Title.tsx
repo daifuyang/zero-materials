@@ -1,11 +1,11 @@
-import { useAos } from '@/utils/utils';
-import React, { Ref } from 'react';
+import { useAos } from '../../utils/utils';
+import React from 'react';
 
 const TITLE_ELE_LIST = [1, 2, 3, 4, 5] as const;
 
 interface TitleProps {
   level?: typeof TITLE_ELE_LIST[number];
-  forwardRef: Ref<any>;
+  forwardRef: React.Ref<any>;
   style: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
